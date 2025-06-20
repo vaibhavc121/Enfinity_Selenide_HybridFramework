@@ -2,6 +2,8 @@ package pageObjects.HRMS.HRCore;
 
 import java.util.Set;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,75 +12,60 @@ import org.openqa.selenium.support.FindBy;
 import base.BasePage;
 import utilities.DataUtils;
 
-public class EmployeePage1 extends BasePage
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
+import static utilities.DataUtils.randomEmail;
+import static utilities.DataUtils.randomMblNum;
+
+public class EmployeePage1 extends SelenideBasePage
 {
 
-	public EmployeePage1(WebDriver driver)
-	{
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
+	private SelenideElement newbtn = $("#MainMenu_DXI0_Img");
 
-	@FindBy(css = "#MainMenu_DXI0_Img")
-	WebElement newbtn;
+	private SelenideElement workEmail = $(By.name("Email"));
 
-	@FindBy(name = "Email")
-	WebElement workEmail;
+	private SelenideElement name = $(By.name("Name"));
 
-	@FindBy(name = "Name")
-	WebElement name;
+	private SelenideElement clkmgr = $("div[class='dx-first-col dx-last-col dx-last-row dx-field-item dx-col-0 dx-field-item-optional dx-field-item-has-group'] div[class='dx-dropdowneditor-icon']");
 
-	@FindBy(css = "div[class='dx-first-col dx-last-col dx-last-row dx-field-item dx-col-0 dx-field-item-optional dx-field-item-has-group'] div[class='dx-dropdowneditor-icon']")
-	WebElement clkmgr;
+	private SelenideElement slctmgr = $x("//div[contains(text(),'001 | Vaibhav Chavan')]");
 
-	@FindBy(xpath = "//div[contains(text(),'001 | Vaibhav Chavan')]")
-	WebElement slctmgr;
+	private SelenideElement mobileNumber = $("#dx_dx-67a22bb8-3d7a-8162-872c-e3199251a8c4_MobileNumber");
 
-	@FindBy(css = "#dx_dx-67a22bb8-3d7a-8162-872c-e3199251a8c4_MobileNumber")
-	WebElement mobileNumber;
+	private SelenideElement clkdept = $("div[class='dx-first-row dx-first-col dx-last-row dx-field-item dx-col-0 dx-field-item-required dx-flex-layout dx-label-v-align'] div[class='dx-show-invalid-badge dx-selectbox dx-textbox dx-texteditor dx-show-clear-button dx-dropdowneditor-button-visible dx-editor-outlined dx-texteditor-empty dx-widget dx-dropdowneditor dx-dropdowneditor-field-clickable dx-validator dx-visibility-change-handler'] div[class='dx-dropdowneditor-icon']");
 
-	@FindBy(css = "div[class='dx-first-row dx-first-col dx-last-row dx-field-item dx-col-0 dx-field-item-required dx-flex-layout dx-label-v-align'] div[class='dx-show-invalid-badge dx-selectbox dx-textbox dx-texteditor dx-show-clear-button dx-dropdowneditor-button-visible dx-editor-outlined dx-texteditor-empty dx-widget dx-dropdowneditor dx-dropdowneditor-field-clickable dx-validator dx-visibility-change-handler'] div[class='dx-dropdowneditor-icon']")
-	WebElement clkdept;
+	private SelenideElement slctdept = $x("//div[contains(text(),'prod')]");
 
-	@FindBy(xpath = "//div[contains(text(),'prod')]")
-	WebElement slctdept;
+	private SelenideElement clkdesg = $("div[class='dx-first-row dx-last-row dx-field-item dx-col-1 dx-field-item-required dx-flex-layout dx-label-v-align'] div[class='dx-show-invalid-badge dx-selectbox dx-textbox dx-texteditor dx-show-clear-button dx-dropdowneditor-button-visible dx-editor-outlined dx-texteditor-empty dx-widget dx-dropdowneditor dx-dropdowneditor-field-clickable dx-validator dx-visibility-change-handler'] div[class='dx-dropdowneditor-icon']");
 
-	@FindBy(css = "div[class='dx-first-row dx-last-row dx-field-item dx-col-1 dx-field-item-required dx-flex-layout dx-label-v-align'] div[class='dx-show-invalid-badge dx-selectbox dx-textbox dx-texteditor dx-show-clear-button dx-dropdowneditor-button-visible dx-editor-outlined dx-texteditor-empty dx-widget dx-dropdowneditor dx-dropdowneditor-field-clickable dx-validator dx-visibility-change-handler'] div[class='dx-dropdowneditor-icon']")
-	WebElement clkdesg;
+	private SelenideElement slctdesg = $x("//div[contains(text(),'Systems Analyst')]");
 
-	@FindBy(xpath = "//div[contains(text(),'Systems Analyst')]")
-	WebElement slctdesg;
+	private SelenideElement save = $x("//span[normalize-space()='Save']");
 
-	@FindBy(xpath = "//span[normalize-space()='Save']")
-	WebElement save;
+	private SelenideElement empname = $x("//h2[normalize-space()='Suraj']");
 
-	@FindBy(xpath = "//h2[normalize-space()='Suraj']")
-	WebElement empname;
+	private SelenideElement filter = $x("/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[5]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]");
 
-	@FindBy(xpath = "/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[5]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")
-	WebElement filter;
+	private SelenideElement clkfilteredemp = $x("//a[normalize-space()='001 | Vaibhav Chavan']");
 
-	@FindBy(xpath = "//a[normalize-space()='001 | Vaibhav Chavan']")
-	WebElement clkfilteredemp;
+	private SelenideElement residencyInfo = $x("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/a[1]/span[1]");
 
-	@FindBy(xpath = "/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/a[1]/span[1]")
-	WebElement residencyInfo;
+	private SelenideElement secondName = $(By.name("SecondName"));
 
-	@FindBy(name = "SecondName")
-	WebElement secondName;
+	private SelenideElement thirdName = $(By.name("ThirdName"));
 
-	@FindBy(name = "ThirdName")
-	WebElement thirdName;
+	private SelenideElement fourthName = $(By.name("FourthName"));
 
-	@FindBy(name = "FourthName")
-	WebElement fourthName;
-
-	@FindBy(name = "LastName")
-	WebElement lastName;
+	private SelenideElement lastName = $(By.name("LastName"));
 
 	// Tab Page Objects
-	@FindBy(xpath = "//span[normalize-space()='Time Off']")
-	WebElement timeOff;
+	private SelenideElement timeOff = $x("//span[normalize-space()='Time Off']");
+
+	// Time off Page Objects
+	private SelenideElement annualLeaveBal = $x("(//p[@class='leave-balance'])[3]");
+
+
+
 
 	// Tab Action Methods
 	public void clkTimeOff()
@@ -86,14 +73,12 @@ public class EmployeePage1 extends BasePage
 		timeOff.click();
 	}
 
-	// Time off Page Objects
-	@FindBy(xpath = "(//p[@class='leave-balance'])[3]")
-	WebElement annualLeaveBal;
+
 
 	// Time off Action Methods
 	public double getAnnualLeaveBal(int classIndex)
 	{
-		String bal = driver.findElement(By.xpath("(//p[@class='leave-balance'])[" + classIndex + "]")).getText();
+		String bal = $x("(//p[@class='leave-balance'])[" + classIndex + "]").getText();
 		// String bal = annualLeaveBal.getText();
 		String number = bal.replaceAll("[^0-9.]", "").trim();
 		// String numberPart = bal.substring(0, 5);

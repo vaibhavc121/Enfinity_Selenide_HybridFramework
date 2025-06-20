@@ -12,7 +12,7 @@ import base.BaseTest;
 import models.Payroll.Payroll.PayrollModel.VariableSalModel;
 import pageObjects.HRMS.Payroll.PayrollPage;
 
-import pages.HRMS.Payroll.VariableSalaryPage;
+import pageObjects.HRMS.Payroll.VariableSalaryPage;
 import utilities.FileUtils;
 import utilities.JsonUtils;
 import utilities.RetryAnalyzer;

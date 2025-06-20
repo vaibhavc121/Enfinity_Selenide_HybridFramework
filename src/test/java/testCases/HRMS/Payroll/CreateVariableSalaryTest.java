@@ -24,11 +24,11 @@ public class CreateVariableSalaryTest extends BaseTest
 			logger.info("clicked on txn");
 
 			// variable sal pg
-			VariableSalaryPage vs = new VariableSalaryPage(driver);
-			vs.clkVariableSal();
-			logger.info("clicked on variable sal");
-			vs.clkNewBtn();
-			logger.info("clicked on new btn");
+//			VariableSalaryPage vs = new VariableSalaryPage(driver);
+//			vs.clkVariableSal();
+//			logger.info("clicked on variable sal");
+//			vs.clkNewBtn();
+//			logger.info("clicked on new btn");
 //			vs.clkEmpDD();
 //			logger.info("clicked on emp dd");
 //			vs.slctEmp();

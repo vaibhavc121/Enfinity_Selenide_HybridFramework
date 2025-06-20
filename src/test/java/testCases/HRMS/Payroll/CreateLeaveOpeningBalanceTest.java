@@ -33,7 +33,7 @@ public class CreateLeaveOpeningBalanceTest extends BaseTest
 			hc.clickEmployee();
 			BasePage.navigateToEmployee("001");
 
-			EmployeePage1 ep = new EmployeePage1(driver);
+			EmployeePage1 ep = new EmployeePage1();
 			ep.clkTimeOff();
 			double LeaveBal = ep.getAnnualLeaveBal(2);
 			double expLeaveBal = LeaveBal + 1;

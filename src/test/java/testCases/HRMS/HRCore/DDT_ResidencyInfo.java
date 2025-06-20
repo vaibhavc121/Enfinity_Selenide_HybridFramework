@@ -30,7 +30,7 @@ public class DDT_ResidencyInfo extends BaseTest
 			logger.info("clicked on employee");
 
 			// employee pg
-			EmployeePage1 ep = new EmployeePage1(driver);
+			EmployeePage1 ep = new EmployeePage1();
 			ep.filterEmp();
 			logger.info("emp name entered");
 			Thread.sleep(3000);

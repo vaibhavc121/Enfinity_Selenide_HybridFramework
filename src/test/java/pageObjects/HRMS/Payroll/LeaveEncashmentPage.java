@@ -1,41 +1,23 @@
 package pageObjects.HRMS.Payroll;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
+import base.BasePage;
+import base.SelenideBasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import base.BasePage;
-import utilities.CommonActions;
+import static com.codeborne.selenide.Selenide.$x;
 
-public class LeaveEncashmentPage extends BasePage
+public class LeaveEncashmentPage extends SelenideBasePage
 {
 
-	public LeaveEncashmentPage(WebDriver driver)
-	{
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
-
-	@FindBy(xpath = "//span[normalize-space()='Leave Encashment']")
-	WebElement leaveEncashment;
-
-	@FindBy(xpath = "//input[@id='LeaveAdjustment.EffectiveDate_I']")
-	WebElement effectiveDate;
-
-	@FindBy(xpath = "//input[@id='LeaveAdjustment.EmployeeIdLookup_I']")
-	WebElement empdd;
-
-	@FindBy(xpath = "//input[@id='LeaveAdjustment.LeaveTypeIdLookup_I']")
-	WebElement leaveTypeDD;
-
-	@FindBy(xpath = "//input[@id='LeaveAdjustment.PaidDays_I']")
-	WebElement paidDaysTB;
-
-	@FindBy(xpath = "//td[normalize-space()='1']")
-	WebElement countPaidDays;
+	private SelenideElement leaveEncashment = $x("//span[normalize-space()='Leave Encashment']");
+	private SelenideElement effectiveDate = $x("//input[@id='LeaveAdjustment.EffectiveDate_I']");
+	private SelenideElement empdd = $x("//input[@id='LeaveAdjustment.EmployeeIdLookup_I']");
+	private SelenideElement leaveTypeDD = $x("//input[@id='LeaveAdjustment.LeaveTypeIdLookup_I']");
+	private SelenideElement paidDaysTB = $x("//input[@id='LeaveAdjustment.PaidDays_I']");
+	private SelenideElement countPaidDays = $x("//td[normalize-space()='1']");
 
 	public void clkLeaveEncashment()
 	{
@@ -86,5 +68,4 @@ public class LeaveEncashmentPage extends BasePage
 	{
 		clickOnApprove();
 	}
-
 }

@@ -12,7 +12,8 @@ import base.BaseTest;
 import models.Payroll.Payroll.PayrollModel.LeaveAdjustmentModel;
 import models.Payroll.Payroll.PayrollModel.LeaveEncashmentModel;
 import pageObjects.HRMS.Payroll.LeaveAdjustmentPage;
-import pages.HRMS.Payroll.LeaveEncashmentPage;
+
+import pageObjects.HRMS.Payroll.LeaveEncashmentPage;
 import pageObjects.HRMS.Payroll.PayrollPage;
 import utilities.FileUtils;
 import utilities.JsonUtils;

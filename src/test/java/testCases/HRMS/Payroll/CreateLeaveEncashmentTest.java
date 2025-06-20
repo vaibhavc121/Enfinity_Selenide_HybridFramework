@@ -13,8 +13,8 @@ import models.Payroll.Payroll.PayrollModel.LeaveAdjustmentModel;
 import models.Payroll.Payroll.PayrollModel.LeaveEncashmentModel;
 import pageObjects.HRMS.HRCore.EmployeePage1;
 import pageObjects.HRMS.HRCore.HRCorePage;
+import pageObjects.HRMS.Payroll.LeaveEncashmentPage;
 import pageObjects.HRMS.Payroll.PayrollPage;
-import pages.HRMS.Payroll.LeaveEncashmentPage;
 import utilities.FileUtils;
 import utilities.JsonUtils;
 import utilities.RetryAnalyzer;
@@ -38,7 +38,7 @@ public class CreateLeaveEncashmentTest extends BaseTest
             hc.clickEmployee();
             BasePage.navigateToEmployee("001");
 
-            EmployeePage1 ep = new EmployeePage1(driver);
+            EmployeePage1 ep = new EmployeePage1();
             ep.clkTimeOff();
             double LeaveBal = ep.getAnnualLeaveBal(2);
             double expLeaveBal = LeaveBal - 1;
