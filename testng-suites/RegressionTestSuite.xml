@@ -56,6 +56,8 @@
             <class name="testCases.HRMS.Payroll.CreateVariableSalaryTest"/>-->
             <class name="testCases.HRMS.Payroll.CreateVariableSalaryTest_Lambok"/>
             <class name="testCases.HRMS.Payroll.DeleteVariableSalaryTest"/>
+            <class name="testCases.HRMS.Payroll.CreateLeaveEncashmentTest"/>
+            <class name="testCases.HRMS.Payroll.DeleteLeaveEncashmentTest"/>
             <class name="testCases.HRMS.Payroll.CreateLeaveAdjustmentTest"/>
             <class name="testCases.HRMS.Payroll.DeleteLeaveAdjustmentTest"/>
             <class name="testCases.HRMS.Payroll.CreateLeaveOpeningBalanceTest"/>
@@ -65,6 +67,10 @@
 
 
             <!-- Self Service -->
+            <class name="testCases.HRMS.SelfService.CreateBenefitClaimTest" />
+            <class name="testCases.HRMS.SelfService.DeleteBenefitClaimTest" />
+            <class name="testCases.HRMS.SelfService.CreateSupportRequestTest" />
+            <class name="testCases.HRMS.SelfService.DeleteSupportRequestTest" />
             <class name="testCases.HRMS.SelfService.CreateExceptionRequestTest"/>
             <class name="testCases.HRMS.SelfService.DeleteExceptionRequestTest"/>
             <class name="testCases.HRMS.SelfService.CreateHRAssetRequest"/>
@@ -106,6 +112,8 @@
             <class name="testCases.HRMS.Attendance.DeleteTwoShiftDayShiftTimetableTest"/>
             <class name="testCases.HRMS.Attendance.CreateTwoShiftNightShiftTimetableTest"/>
             <class name="testCases.HRMS.Attendance.DeleteTwoShiftNightShiftTimetableTest"/>
+            <class name="testCases.HRMS.Attendance.CreateNightShiftTimetableTest" />
+            <class name="testCases.HRMS.Attendance.DeleteNightShiftTimetableTest" />
 
 
             <!-- Global -->

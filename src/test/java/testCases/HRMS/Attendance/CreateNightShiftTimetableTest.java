@@ -1,5 +1,7 @@
 package testCases.HRMS.Attendance;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,10 +27,12 @@ public class CreateNightShiftTimetableTest extends BaseTest
             List<NightShiftModel> attendanceData = JsonUtils.convertJsonListDataModel(attendanceFile,
                     "createNightShiftTimetable", NightShiftModel.class);
 
-            BasePage.globalSearch("Timetable");
-            log("");
+            driver = WebDriverRunner.getWebDriver();
 
-            TimetablePage tp = new TimetablePage(driver);
+            SelenideBasePage.globalSearch("Timetable");
+            log("opened timetable from global search");
+
+            TimetablePage tp = new TimetablePage();
 
             for (NightShiftModel shift : attendanceData)
             {
@@ -59,7 +63,7 @@ public class CreateNightShiftTimetableTest extends BaseTest
                 tp.clickViewBack();
                 log("provideMaximumWorkedHourPerDay");
 
-                Assert.assertTrue(BasePage.validateListing(shift.name, 2, 1));
+                Assert.assertTrue(SelenideBasePage.validateListing(shift.name, 2, 1));
                 log("assertion completed");
             }
         } catch (Exception e)

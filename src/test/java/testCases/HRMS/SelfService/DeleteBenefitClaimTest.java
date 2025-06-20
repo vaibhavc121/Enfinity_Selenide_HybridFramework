@@ -1,5 +1,7 @@
 package testCases.HRMS.SelfService;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -24,17 +26,19 @@ public class DeleteBenefitClaimTest extends BaseTest
 			List<BenefitClaimModel> benefitClaimData = JsonUtils.convertJsonListDataModel(selfServiceFile,
 					"deleteBenefitClaim", BenefitClaimModel.class);
 
+			driver = WebDriverRunner.getWebDriver();
+
 			// self service page
 			SelfServicePage ss = new SelfServicePage(driver);
 			ss.clickSelfService();
 			ss.clickTransactions();
 
 			// Benefit Claim page
-			BenefitClaimPage bc = new BenefitClaimPage(driver);
+			BenefitClaimPage bc = new BenefitClaimPage();
 			bc.clickBenefitClaim();
 
-			BasePage.deleteTxn(9, "active");
-			Assert.assertFalse(BasePage.validateListing("active", 9, 9));
+			SelenideBasePage.deleteTxn(9, "active");
+			Assert.assertFalse(SelenideBasePage.validateListing("active", 9, 9));
 
 		} catch (Exception e)
 		{

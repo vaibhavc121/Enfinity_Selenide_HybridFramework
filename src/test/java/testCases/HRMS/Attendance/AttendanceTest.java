@@ -28,7 +28,7 @@ public class AttendanceTest extends BaseTest
 
             BasePage.globalSearch("Timetable");
 
-            TimetablePage tp = new TimetablePage(driver);
+            TimetablePage tp = new TimetablePage();
 
             for (AttendanceModel.LenientShiftModel strict : attendanceData)
             {
@@ -211,7 +211,7 @@ public class AttendanceTest extends BaseTest
 
             BasePage.globalSearch("Timetable");
 
-            TimetablePage tp = new TimetablePage(driver);
+            TimetablePage tp = new TimetablePage();
 
             for (AttendanceModel.StrictDayShiftModel strict : attendanceData)
             {
@@ -268,7 +268,7 @@ public class AttendanceTest extends BaseTest
 
             BasePage.globalSearch("Timetable");
 
-            TimetablePage tp = new TimetablePage(driver);
+            TimetablePage tp = new TimetablePage();
 
             for (AttendanceModel.TwoShiftDayShiftModel strict : attendanceData)
             {
@@ -328,7 +328,7 @@ public class AttendanceTest extends BaseTest
 
             BasePage.globalSearch("Timetable");
 
-            TimetablePage tp = new TimetablePage(driver);
+            TimetablePage tp = new TimetablePage();
 
             for (AttendanceModel.TwoShiftNightShiftModel strict : attendanceData)
             {
@@ -383,7 +383,7 @@ public class AttendanceTest extends BaseTest
 
             BasePage.globalSearch("Timetable");
 
-            TimetablePage tp = new TimetablePage(driver);
+            TimetablePage tp = new TimetablePage();
 
             for (AttendanceModel.NightShiftModel shift : attendanceData)
             {

@@ -1,50 +1,30 @@
 package pageObjects.HRMS.SelfService;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import base.BasePage;
 
-public class ITSupportRequestPage extends BasePage
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
+
+public class ITSupportRequestPage extends SelenideBasePage
 {
-
-	public ITSupportRequestPage(WebDriver driver)
-	{
-		super(driver);
-
-	}
-
 	// Locators
-	@FindBy(xpath = "//span[normalize-space()='Support Request']")
-	WebElement iTSupportRequest;
+	private SelenideElement iTSupportRequest = $x("//span[normalize-space()='Support Request']");
+	private SelenideElement subject = $x("//input[contains(@id,'Title')]");
+	private SelenideElement supportRequest = $x("//input[@id='SupportRequest.SupportRequestCategoryIdLookup_I']");
+	private SelenideElement priority = $("#SupportRequest.Priority_B-1Img");
+	private SelenideElement desc = $x("//div[@aria-label='Editor content']");
+	private SelenideElement plusBtn = $x("(//i[@class='dx-icon dx-icon-new-icon'])[5]");
+	private SelenideElement low = $x("//div[normalize-space()='Low']");
+	private SelenideElement normal = $x("//div[normalize-space()='Normal']");
+	private SelenideElement high = $x("//div[text()='High']");
+	private SelenideElement contextMenu = $("#MainMenu_DXI15_PImg");
 
-	@FindBy(xpath = "//input[contains(@id,'Title')]")
-	WebElement subject;
-
-	@FindBy(xpath = "//input[@id='SupportRequest.SupportRequestCategoryIdLookup_I']")
-	WebElement supportRequest;
-
-	@FindBy(id = "SupportRequest.Priority_B-1Img")
-	WebElement priority;
-
-	@FindBy(xpath = "//div[@aria-label='Editor content']")
-	WebElement desc;
-
-	@FindBy(xpath = "(//i[@class='dx-icon dx-icon-new-icon'])[5]")
-	WebElement plusBtn;
-
-	@FindBy(xpath = "Low")
-	WebElement low;
-
-	@FindBy(xpath = "Normal")
-	WebElement normal;
-
-	@FindBy(xpath = "//div[text()='High']")
-	WebElement high;
-
-	@FindBy(xpath = "//img[@id='MainMenu_DXI15_PImg']")
-	WebElement contextMenu;
 
 	// Action Methods
 	public void clickITSupport()

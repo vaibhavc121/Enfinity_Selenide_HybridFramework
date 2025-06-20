@@ -2,6 +2,7 @@ package testCases.HRMS.SelfService;
 
 import java.util.List;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import base.BaseTest;
@@ -23,13 +24,15 @@ public class CreateBenefitClaimTest extends BaseTest
 			List<BenefitClaimModel> benefitClaimData = JsonUtils.convertJsonListDataModel(selfServiceFile,
 					"createBenefitClaim", BenefitClaimModel.class);
 
+			driver = WebDriverRunner.getWebDriver();
+
 			// self service page
 			SelfServicePage ss = new SelfServicePage(driver);
 			ss.clickSelfService();
 			ss.clickTransactions();
 
 			// Benefit Claim page
-			BenefitClaimPage bc = new BenefitClaimPage(driver);
+			BenefitClaimPage bc = new BenefitClaimPage();
 
 			for (BenefitClaimModel benefitClaim : benefitClaimData)
 			{

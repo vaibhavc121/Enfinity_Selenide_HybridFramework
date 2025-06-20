@@ -1,61 +1,33 @@
 package pageObjects.HRMS.Attendance;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import base.BasePage;
 
-public class TimetablePage extends BasePage
+import static com.codeborne.selenide.Selenide.$x;
+
+public class TimetablePage extends SelenideBasePage
 {
 
-	public TimetablePage(WebDriver driver)
-	{
-		super(driver);
+	private SelenideElement name = $x("//input[@id='Timetable.Name_I']");
+	private SelenideElement dayType = $x("//input[@id='Timetable.DayType_I']");
+	private SelenideElement nightShift = $x("//span[@id='Timetable.NightShift_S_D']");
+	private SelenideElement mode = $x("//input[@id='Timetable.TimetableType_I']");
+	private SelenideElement maximumWorkedHourPerDay = $x("//input[@id='Timetable.MaximumWorkedHourPerDay_I']");
+	private SelenideElement workInTwoShift = $x("//span[@id='Timetable.WorkInTwoShift_S_D']");
+	private SelenideElement firstInTime = $x("//input[@id='Timetable.FirstInTime_I']");
+	private SelenideElement firstOutTime = $x("//input[@id='Timetable.FirstOutTime_I']");
+	private SelenideElement secondInTime = $x("//input[@id='Timetable.SecondInTime_I']");
+	private SelenideElement secondOutTime = $x("//input[@id='Timetable.SecondOutTime_I']");
+	private SelenideElement shiftNextDayStartFromSpe = $x("//input[@id='Timetable.ShiftNextDayStartFrom_I']");
+	private SelenideElement workedHourPerDay = $x("//input[@id='Timetable.WorkedHourPerDay_I']");
+	private SelenideElement hourlyMinCheckInTime = $x("//input[@id='Timetable.HourlyMinCheckInTime_I']");
+	private SelenideElement hourlyMaxCheckOutTime = $x("//input[@id='Timetable.HourlyMaxCheckOutTime_I']");
 
-	}
-
-	@FindBy(xpath = "//input[@id='Timetable.Name_I']")
-	WebElement name;
-
-	@FindBy(xpath = "//input[@id='Timetable.DayType_I']")
-	WebElement dayType;
-
-	@FindBy(xpath = "//span[@id='Timetable.NightShift_S_D']")
-	WebElement nightShift;
-
-	@FindBy(xpath = "//input[@id='Timetable.TimetableType_I']")
-	WebElement mode;
-
-	@FindBy(xpath = "//input[@id='Timetable.MaximumWorkedHourPerDay_I']")
-	WebElement maximumWorkedHourPerDay;
-
-	@FindBy(xpath = "//span[@id='Timetable.WorkInTwoShift_S_D']")
-	WebElement workInTwoShift;
-
-	@FindBy(xpath = "//input[@id='Timetable.FirstInTime_I']")
-	WebElement firstInTime;
-
-	@FindBy(xpath = "//input[@id='Timetable.FirstOutTime_I']")
-	WebElement firstOutTime;
-
-	@FindBy(xpath = "//input[@id='Timetable.SecondInTime_I']")
-	WebElement secondInTime;
-
-	@FindBy(xpath = "//input[@id='Timetable.SecondOutTime_I']")
-	WebElement secondOutTime;
-
-	@FindBy(xpath = "//input[@id='Timetable.ShiftNextDayStartFrom_I']")
-	WebElement shiftNextDayStartFromSpe;
-
-	@FindBy(xpath = "//input[@id='Timetable.WorkedHourPerDay_I']")
-	WebElement workedHourPerDay;
-
-	@FindBy(xpath = "//input[@id='Timetable.HourlyMinCheckInTime_I']")
-	WebElement hourlyMinCheckInTime;
-
-	@FindBy(xpath = "//input[@id='Timetable.HourlyMaxCheckOutTime_I']")
-	WebElement hourlyMaxCheckOutTime;
 
 	public void clickNew()
 	{

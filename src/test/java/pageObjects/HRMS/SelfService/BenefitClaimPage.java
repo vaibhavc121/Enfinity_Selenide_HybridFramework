@@ -1,41 +1,27 @@
 package pageObjects.HRMS.SelfService;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import base.BasePage;
 
-public class BenefitClaimPage extends BasePage
+import static com.codeborne.selenide.Selenide.$x;
+
+public class BenefitClaimPage extends SelenideBasePage
 {
 
-	public BenefitClaimPage(WebDriver driver)
-	{
-		super(driver);
-
-	}
-
 	// Locators
-	@FindBy(xpath = "//a[@id='TxnInstanceView_I0i19_T']//span[@class='dx-vam'][normalize-space()='Profile Update']")
-	WebElement profileUpdate;
+	private SelenideElement profileUpdate = $x("//a[@id='TxnInstanceView_I0i19_T']//span[@class='dx-vam'][normalize-space()='Profile Update']");
+	private SelenideElement benefitClaim = $x("//span[normalize-space()='Benefit Claim']");
+	private SelenideElement claimDate = $x("//input[@id='BenefitClaim.ClaimDate_I']");
+	private SelenideElement EmpBenefitScheme = $x("//input[@id='BenefitClaim.EmployeeBenefitSchemeIdLookup_I']");
+	private SelenideElement claimAmount = $x("//input[@id='BenefitClaim.ClaimAmount_I']");
+	private SelenideElement paymentType = $x("//input[@id='BenefitClaim.PaymentType_I']");
+	private SelenideElement remarks = $x("//textarea[@id='BenefitClaim.Description_I']");
 
-	@FindBy(xpath = "//span[normalize-space()='Benefit Claim']")
-	WebElement benefitClaim;
-
-	@FindBy(xpath = "//input[@id='BenefitClaim.ClaimDate_I']")
-	WebElement claimDate;
-
-	@FindBy(xpath = "//input[@id='BenefitClaim.EmployeeBenefitSchemeIdLookup_I']")
-	WebElement EmpBenefitScheme;
-
-	@FindBy(xpath = "//input[@id='BenefitClaim.ClaimAmount_I']")
-	WebElement claimAmount;
-
-	@FindBy(xpath = "//input[@id='BenefitClaim.PaymentType_I']")
-	WebElement paymentType;
-
-	@FindBy(xpath = "//textarea[@id='BenefitClaim.Description_I']")
-	WebElement remarks;
 
 	// Action Methods
 	public void scrollDownWebpage()
@@ -65,7 +51,7 @@ public class BenefitClaimPage extends BasePage
 
 	public void provideClaimAmt(String value)
 	{
-		claimAmount.sendKeys(value);
+		claimAmount.setValue(value);
 	}
 
 	public void providePaymentType(String value)
@@ -75,7 +61,7 @@ public class BenefitClaimPage extends BasePage
 
 	public void provideRemarks(String value)
 	{
-		remarks.sendKeys(value);
+		remarks.setValue(value);
 	}
 
 	public void clickSave()

@@ -1,5 +1,6 @@
 package testCases.HRMS.SelfService;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import base.BaseTest;
@@ -22,13 +23,15 @@ public class CreateSupportRequestTest extends BaseTest
 			List<ITSupportModel> itSupportData = JsonUtils.convertJsonListDataModel(itSupportFile, "createITSupport",
 					ITSupportModel.class);
 
+			driver = WebDriverRunner.getWebDriver();
+
 			// self service page
 			SelfServicePage ss = new SelfServicePage(driver);
 			ss.clickSelfService();
 			ss.clickTransactions();
 
 			// ITSupport page
-			ITSupportRequestPage it = new ITSupportRequestPage(driver);
+			ITSupportRequestPage it = new ITSupportRequestPage();
 
 			for (ITSupportModel itSupport : itSupportData)
 			{

@@ -1,5 +1,7 @@
 package testCases.HRMS.SelfService;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -24,6 +26,8 @@ public class DeleteSupportRequestTest extends BaseTest
 			List<ITSupportModel> itSupportData = JsonUtils.convertJsonListDataModel(itSupportFile, "createITSupport",
 					ITSupportModel.class);
 
+			driver = WebDriverRunner.getWebDriver();
+
 			// self service page
 			SelfServicePage ss = new SelfServicePage(driver);
 			ss.clickSelfService();
@@ -32,12 +36,12 @@ public class DeleteSupportRequestTest extends BaseTest
 			log("clickTransactions");
 
 			// ITSupport page
-			ITSupportRequestPage it = new ITSupportRequestPage(driver);
+			ITSupportRequestPage it = new ITSupportRequestPage();
 			it.clickITSupport();
 			log("clickITSupport");
 
-			BasePage.deleteTxn(7, "Active");
-			Assert.assertFalse(BasePage.validateListing("Active", 7, 7));
+			SelenideBasePage.deleteTxn(7, "Active");
+			Assert.assertFalse(SelenideBasePage.validateListing("Active", 7, 7));
 
 		} catch (Exception e)
 		{

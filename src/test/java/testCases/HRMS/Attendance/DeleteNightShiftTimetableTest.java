@@ -1,5 +1,7 @@
 package testCases.HRMS.Attendance;
 
+import base.SelenideBasePage;
+import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -24,13 +26,15 @@ public class DeleteNightShiftTimetableTest extends BaseTest
             List<NightShiftModel> attendanceData = JsonUtils.convertJsonListDataModel(attendanceFile,
                     "createNightShiftTimetable", NightShiftModel.class);
 
-            BasePage.globalSearch("Timetable");
+            driver = WebDriverRunner.getWebDriver();
+
+            SelenideBasePage.globalSearch("Timetable");
             BasePage.waitTS(3);
 
             for (NightShiftModel strict : attendanceData)
             {
-                BasePage.deleteTxn(2, strict.name);
-                Assert.assertFalse(BasePage.validateListing(strict.name, 2, 1));
+                SelenideBasePage.deleteTxn(2, strict.name);
+                Assert.assertFalse(SelenideBasePage.validateListing(strict.name, 2, 1));
             }
         } catch (Exception e)
         {
